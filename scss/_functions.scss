@@ -1,0 +1,15 @@
+@function depixel ( $value ) {
+  @return $value / 1px;
+}
+
+@function unitLess ( $value, $root: 16 ) {
+  @return ( $value / $root );
+}
+
+@function toEm ( $value, $root: 16 ) {
+  @return ( $value / $root ) * 1em;
+}
+
+@function toRem ( $value, $root: 16 ) {
+  @return ( $value / $root ) * 1rem;
+}

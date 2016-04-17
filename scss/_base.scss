@@ -1,0 +1,47 @@
+////
+/// This file contains basic definitions
+////
+
+/// Variables
+$scale: 1.5;
+$base-size: 20px;
+$base-em: toEm(depixel($base-size));
+$base-rem: toRem(depixel($base-size));
+$lh: $scale;
+/// debug line correction constant
+$corr: -7px;
+
+$line-color: #15ADE6;
+
+/// Line grid for vertical rythm debug
+body {
+  width:960px;
+  margin: 0 auto;
+  background: linear-gradient(transparent ($base-size * $scale - 1px + $corr), $line-color ($base-size * $scale - 1px + $corr), $line-color ($base-size * $scale + $corr), transparent ($base-size * $scale + $corr) ) 0 0 / 100% ($base-size * $scale) repeat-y;
+
+  font-size: toRem(depixel($base-size));
+  line-height: $scale;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $lh * 1em; //FIXME - tohle obecně do fce
+}
+
+h1 {
+  font-size: $base-rem * $scale * $scale * $scale;
+  line-height: 1;
+  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale * $scale * $scale)) * 1em;
+}
+
+h2 {
+  font-size: $base-rem * $scale * $scale;
+  line-height: 1;
+  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale * $scale)) * 1em;
+}
+
+h3 {
+  font-size: $base-rem * $scale;
+  line-height: 1;
+  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale)) * 1em;
+}

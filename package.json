@@ -1,0 +1,65 @@
+{
+    "name": "peon",
+    "version": "1.0.0",
+    "author": "Tomas Pustelnik",
+    "description": "My Custom NPM task runner for web development, processing CSS and JS (and maybe doing much more in the future)",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/Pustelto/Dev_boilerplate.git"
+    },
+    "devDependencies"  : {
+        "rimraf"                         : "latest",
+        "mkdirp"                         : "latest",
+
+        "node-sass"                      : "latest",
+        "postcss-cli"                    : "latest",
+        "autoprefixer"                   : "latest",
+        "postcss-opacity"                : "latest",
+        "pixrem"                         : "latest",
+        "cssnano-cli"                    : "latest",
+
+        "babel-cli"                      : "^6.0.0",
+        "babel-preset-es2015"            : "latest",
+        "babel-polyfill"                 : "latest",
+        "babel-plugin-transform-runtime" : "latest",
+        "babel-runtime"                  : "latest",
+
+        "uglifyjs"                       : "latest",
+
+        "watch"                          : "latest",
+        "parallelshell"                  : "latest",
+        "browser-sync"                   : "latest"
+    },
+    "scripts": {
+        "start": "parallelshell \"npm run browsersync\" \"npm run watch\"",
+        "clear": "rimraf dist",
+
+        "prebuild": "npm run clear",
+        "build": "npm run build:css && npm run build:js",
+
+        "build:css": "npm run build:sass",
+        "postbuild:css": "npm run postcss && npm run minify:css",
+        "build:sass": "node-sass --style expanded scss/main.scss css/main.css",
+        "prebuild:babel": "mkdirp dist/js",
+        "build:babel": "babel js/main.js --out-file dist/js/main-compiled.js -s",
+        "build:js": "npm run build:babel && minify:js",
+
+        "postcss": "npm run autoprefixer && npm run PostCSS-opacity && npm run PostCSS-pixrem",
+        "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers \"> 1%\" -o css/main.css css/main.css",
+        "PostCSS-opacity": "postcss -u postcss-opacity -o css/main.css css/main.css",
+        "PostCSS-pixrem": "postcss -u pixrem -o css/main.css css/main.css",
+
+        "watch": "parallelshell \"npm run watch:css\" \"npm run watch:js\"",
+        "watch:css": "watch \"npm run build:sass\" scss/",
+        "watch:js": "watch \"npm run build:babel\" js/",
+
+        "minify": "npm run minify:css && npm run minify:js",
+        "minify:css": "npm run cssnano",
+        "precssnano": "mkdirp dist/css",
+        "cssnano": "cssnano css/main.css dist/css/main.min.css --no-autoprefixer",
+
+        "minify:js": "mkdirp dist/js && uglifyjs dist/js/main-compiled.js > dist/js/main.min.js",
+
+        "browsersync": "browser-sync start --server --files \"*.html, css/*.css\""
+    }
+}
