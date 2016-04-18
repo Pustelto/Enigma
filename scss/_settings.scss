@@ -1,0 +1,24 @@
+/// Helpers
+/// should be moved to different partial in the future
+@function depixel ( $value ) {
+  @return $value / 1px;
+}
+
+@function unitLess ( $value, $root: 16 ) {
+  @return ( $value / $root );
+}
+
+@function toEm ( $value, $root: 16 ) {
+  @return ( $value / $root ) * 1em;
+}
+
+@function toRem ( $value, $root: 16 ) {
+  @return ( $value / $root ) * 1rem;
+}
+
+/// settings
+$enig-base: 16px !default;
+$enig-scale: 1.5 !default;
+$enig-unit: 'rem' !default;
+
+$enig-number: unitLess(depixel($enig-base));

@@ -1,15 +1,35 @@
-@function depixel ( $value ) {
-  @return $value / 1px;
+/// Function to calculate size based on scale
+@function enigmaSize ( $level: 0, $unit: $enig-unit ) {
+  $value: $enig-number;
+
+  @if $level > 0 {
+    @for $i from 1 through $level {
+      $value: $value * $enig-scale;
+    }
+  } @else if $level < 0 {
+    @for $i from 1 through -$level {
+      $value: $value / $enig-scale;
+    }
+  }
+
+  @if $unit {
+    @return $value * 1#{$unit};
+  } @else {
+    @return $value;
+  }
 }
 
-@function unitLess ( $value, $root: 16 ) {
-  @return ( $value / $root );
+@function enigmaLine ( $level: 0 ) {
+  $lh: $enig-scale;
+
+  @if $level > 0 {
+    $lh: $level * $lh * $enig-number;
+    @return ( $lh / enigmaSize( $level, null ) );
+  }
+
+  @return $lh;
 }
 
-@function toEm ( $value, $root: 16 ) {
-  @return ( $value / $root ) * 1em;
-}
-
-@function toRem ( $value, $root: 16 ) {
-  @return ( $value / $root ) * 1rem;
+@function enigmaLeading ( $level: 1 ) {
+  @return ( $enig-scale * $level * $enig-number) * 1#{$enig-unit};
 }

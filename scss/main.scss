@@ -1,8 +1,13 @@
 /// normalization file
 @import 'normy-core';
 
+//variables
+@import 'var';
+
 /// Enigma files
+@import 'settings';
 @import 'functions';
+@import 'mixins';
 
 /// base CSS file
 @import 'base';

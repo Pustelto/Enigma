@@ -22,27 +22,32 @@ ul, ol {
   padding: 0; }
 
 body {
-  width: 960px;
-  margin: 0 auto;
   background: linear-gradient(transparent 22px, #15ADE6 22px, #15ADE6 23px, transparent 23px) 0 0/100% 30px repeat-y;
   font-size: 1.25rem;
-  line-height: 1.5; }
+  line-height: 1.5;
+  width: 960px;
+  margin: 0 auto; }
 
 p {
   margin-top: 0;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.875rem; }
 
 h1 {
   font-size: 4.21875rem;
-  line-height: 1;
-  margin-bottom: 0.35556em; }
+  line-height: 1.33333;
+  margin-top: 3.75rem;
+  margin-bottom: 1.875rem; }
 
+/*
 h2 {
-  font-size: 2.8125rem;
+  font-size: $base-rem * $scale * $scale;
   line-height: 1;
-  margin-bottom: 0.53333em; }
+  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale * $scale)) * 1em;
+}
 
 h3 {
-  font-size: 1.875rem;
+  font-size: $base-rem * $scale;
   line-height: 1;
-  margin-bottom: 0.8em; }
+  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale)) * 1em;
+}
+*/
