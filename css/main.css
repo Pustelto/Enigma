@@ -22,32 +22,32 @@ ul, ol {
   padding: 0; }
 
 body {
-  background: linear-gradient(transparent 22px, #15ADE6 22px, #15ADE6 23px, transparent 23px) 0 0/100% 30px repeat-y;
+  background: linear-gradient(transparent 19.66667px, #15ADE6 19.66667px, #15ADE6 20.66667px, transparent 20.66667px) 0 0/100% 26.66667px repeat-y; }
+
+body {
   font-size: 1.25rem;
-  line-height: 1.5;
+  line-height: 1.33333;
   width: 960px;
   margin: 0 auto; }
 
 p {
   margin-top: 0;
-  margin-bottom: 1.875rem; }
+  margin-bottom: 1.66667rem; }
 
 h1 {
-  font-size: 4.21875rem;
-  line-height: 1.33333;
-  margin-top: 3.75rem;
-  margin-bottom: 1.875rem; }
+  font-size: 3.95062rem;
+  line-height: 1.6875;
+  margin-top: 3.33333rem;
+  margin-bottom: 1.66667rem; }
 
-/*
 h2 {
-  font-size: $base-rem * $scale * $scale;
-  line-height: 1;
-  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale * $scale)) * 1em;
-}
+  font-size: 2.96296rem;
+  line-height: 1.6875;
+  margin-top: 2.5rem;
+  margin-bottom: 0.83333rem; }
 
 h3 {
-  font-size: $base-rem * $scale;
+  font-size: 1.66667rem;
   line-height: 1;
-  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale)) * 1em;
-}
-*/
+  margin-top: 1.66667rem;
+  margin-bottom: 1.66667rem; }

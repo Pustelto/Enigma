@@ -4,7 +4,6 @@
 
 /// Line grid for vertical rythm debug
 body {
-  @include enig-dev-lines;
   @include enig-size();
   width:960px;
   margin: 0 auto;
@@ -12,25 +11,23 @@ body {
 
 p {
   margin-top: 0;
-  margin-bottom: enigmaLeading()
+  margin-bottom: enigmaLeading();
 }
 
 h1 {
-  @include enig-size(3);
+  @include enig-size(4);
   margin-top: enigmaLeading(2);
   margin-bottom: enigmaLeading();
 }
 
-/*
 h2 {
-  font-size: $base-rem * $scale * $scale;
-  line-height: 1;
-  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale * $scale)) * 1em;
+  @include enig-size(3);
+  margin-top: enigmaLeading(1.5);
+  margin-bottom: enigmaLeading(0.5);
 }
 
 h3 {
-  font-size: $base-rem * $scale;
-  line-height: 1;
-  margin-bottom: ($scale / (unitLess(depixel($base-size)) * $scale)) * 1em;
+  @include enig-size(1);
+  margin-top: enigmaLeading();
+  margin-bottom: enigmaLeading();
 }
-*/

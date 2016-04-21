@@ -63,7 +63,7 @@
 			"file": "scss/main.scss",
 			"settings":
 			{
-				"buffer_size": 156,
+				"buffer_size": 184,
 				"line_ending": "Windows"
 			}
 		},
@@ -71,41 +71,40 @@
 			"file": "scss/_base.scss",
 			"settings":
 			{
-				"buffer_size": 1202,
+				"buffer_size": 633,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "/// Helpers\n/// should be moved to different partial in the future\n@function depixel ( $value ) {\n  @return $value / 1px;\n}\n\n@function unitLess ( $value, $root: 16 ) {\n  @return ( $value / $root );\n}\n\n@function toEm ( $value, $root: 16 ) {\n  @return ( $value / $root ) * 1em;\n}\n\n@function toRem ( $value, $root: 16 ) {\n  @return ( $value / $root ) * 1rem;\n}\n\n/// settings\n$enig-base: 16px !default;\n$enig-scale: 1.5 !default;\n$enig-unit: 'rem' !default;\n\n$enig-rem-base: toRem(depixel($base-size));",
-			"file": "scss/_settings.scss",
-			"file_size": 83,
-			"file_write_time": 131054840390357758,
+			"file": "scss/_var.scss",
 			"settings":
 			{
-				"buffer_size": 498,
+				"buffer_size": 120,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scss/_settings.scss",
+			"settings":
+			{
+				"buffer_size": 499,
 				"line_ending": "Windows",
 				"name": "$enigma"
 			}
 		},
 		{
-			"contents": "/// Function to calculate size based on scale\n@function enigmaSize ( $level: 0, $unit: $enig-unit ) {\n  $value: $enig-rem-base;\n\n  @if $level > 0 {\n    @for $i from 1 through $level {\n      $value: $value * $enig-scale;\n    }\n  } @else if $level < 0 {\n    @for $i from 1 through -$level {\n      $value: $value / $enig-scale;\n    }\n  }\n\n  @if unit {\n    @return $value * 1#{$unit};\n  } @else {\n    @return $value;\n  }\n}",
 			"file": "scss/_functions.scss",
-			"file_size": 732,
-			"file_write_time": 131054840262177551,
 			"settings":
 			{
-				"buffer_size": 418,
+				"buffer_size": 715,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "@mixin enig-size ( $level: 0 ) {\n  font-size: enigmaSize( $level );\n  line-height: ;\n}",
 			"file": "scss/_mixins.scss",
-			"file_size": 71,
-			"file_write_time": 131054834133384988,
 			"settings":
 			{
-				"buffer_size": 86,
+				"buffer_size": 437,
 				"line_ending": "Windows"
 			}
 		}
@@ -117,10 +116,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 354.0,
-		"last_filter": "save",
+		"height": 95.0,
+		"last_filter": "saveal",
 		"selected_items":
 		[
+			[
+				"saveal",
+				"File: Save All"
+			],
 			[
 				"save",
 				"Project: Save As"
@@ -233,6 +236,7 @@
 	],
 	"file_history":
 	[
+		"/D/Documents/Graphics/WebDesign/enigma/scss/_base.scss",
 		"/D/Documents/Graphics/WebDesign/enigma/.gitignore",
 		"/D/Documents/Graphics/WebDesign/enigma/node_modules/js-base64/base64.html",
 		"/D/Documents/Graphics/WebDesign/enigma/inde.xhtml",
@@ -336,6 +340,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$scale",
+			"scale",
+			"base-size",
+			"$enig-rem-base",
+			"$base-size",
+			"base",
 			"number",
 			"exponent",
 			"functions",
@@ -457,13 +467,7 @@
 			"auto",
 			"position",
 			"after",
-			"float",
-			"output",
-			"math",
-			"fluid",
-			"proje",
-			"switch",
-			"about-w"
+			"float"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -486,7 +490,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -575,7 +579,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -663,7 +667,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -672,15 +676,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 156,
+						"buffer_size": 184,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								80,
-								80
+								70,
+								70
 							]
 						],
 						"settings":
@@ -752,7 +756,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -761,15 +765,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1202,
+						"buffer_size": 633,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								609,
-								635
+								0,
+								0
 							]
 						],
 						"settings":
@@ -833,32 +837,119 @@
 								"bh_regex_close",
 								"bh_regex_content"
 							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
-							"open_with_edit": true,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 189.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "scss/_settings.scss",
+					"file": "scss/_var.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 498,
+						"buffer_size": 120,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								498,
-								498
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "scss/_settings.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								455,
+								499
 							]
 						],
 						"settings":
@@ -929,24 +1020,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "scss/_functions.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 418,
+						"buffer_size": 715,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								128,
-								128
+								520,
+								520
 							]
 						],
 						"settings":
@@ -1018,24 +1109,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "scss/_mixins.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 86,
+						"buffer_size": 437,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								86,
-								86
+								142,
+								142
 							]
 						],
 						"settings":
@@ -1105,7 +1196,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1159,6 +1250,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"_base",
+				"scss\\_base.scss"
+			],
 			[
 				"base",
 				"node_modules\\js-base64\\base64.html"
@@ -1354,10 +1449,6 @@
 			[
 				"main-",
 				"scss\\layout\\_main-nav.scss"
-			],
-			[
-				"_base",
-				"scss\\base\\_base.scss"
 			],
 			[
 				"typog",

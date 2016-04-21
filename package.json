@@ -60,6 +60,6 @@
 
         "minify:js": "mkdirp dist/js && uglifyjs dist/js/main-compiled.js > dist/js/main.min.js",
 
-        "browsersync": "browser-sync start --server --files \"*.html, css/*.css\""
+        "browsersync": "browser-sync start --server --files \"css/*.css\""
     }
 }

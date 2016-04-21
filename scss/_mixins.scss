@@ -1,8 +1,10 @@
+/// Create grid lines for debug purpose
+@mixin enig-grid () {
+  background: linear-gradient(transparent ($enig-base * $enig-scale - 1px + $corr), $line-color ($enig-base * $enig-scale - 1px + $corr), $line-color ($enig-base * $enig-scale + $corr), transparent ($enig-base * $enig-scale + $corr) ) 0 0 / 100% ($enig-base * $enig-scale) repeat-y;
+}
+
+/// Set basic text properties based on base font size and scale
 @mixin enig-size ( $level: 0, $lh: $enig-scale ) {
   font-size: enigmaSize( $level );
   line-height: enigmaLine( $level );
-}
-
-@mixin enig-dev-lines () {
-  background: linear-gradient(transparent ($enig-base * $enig-scale - 1px + $corr), $line-color ($enig-base * $enig-scale - 1px + $corr), $line-color ($enig-base * $enig-scale + $corr), transparent ($enig-base * $enig-scale + $corr) ) 0 0 / 100% ($enig-base * $enig-scale) repeat-y;
 }
