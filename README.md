@@ -3,8 +3,8 @@
 proměná `$enig-base` musí být v pixelech
 
 ## To-Do:
-- upravit mixin enig-size pro velikosti, kde nefunguje standartní posloupnost
-- upravit mixin i pro záporné (malé) velikosti textu
+- enigma mixin - nefunguje, když zadám pouze 1 číslo u with, ošetřit pro vynechání mb nebo mt
+- upravit mixin enig-size pro velikosti, kde nefunguje standartní posloupnost - velikost řádku
 - otestovat pro různé stupnice - zaokrouhlován způsobuje rozdíli a boří vertical rhythm
 
 - nastavení správného marginu

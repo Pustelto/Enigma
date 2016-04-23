@@ -1,33 +1,43 @@
 ////
 /// This file contains basic definitions
 ////
-
 /// Line grid for vertical rythm debug
 body {
-  @include enig-size();
+  @include enigma();
   width:960px;
   margin: 0 auto;
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: enigmaLeading();
-}
-
 h1 {
-  @include enig-size(4);
+  @include enigma(4 with 3 1);
   margin-top: enigmaLeading(2);
   margin-bottom: enigmaLeading();
 }
 
 h2 {
-  @include enig-size(3);
+  @include enigma(2);
   margin-top: enigmaLeading(1.5);
   margin-bottom: enigmaLeading(0.5);
 }
 
 h3 {
-  @include enig-size(1);
+  @include enigma(1);
   margin-top: enigmaLeading();
   margin-bottom: enigmaLeading();
+}
+
+.small {
+  @include enigma(-1);
+}
+
+.smaller {
+  @include enigma(-2);
+}
+
+.tiny {
+  @include enigma(-3);
+}
+
+.nano {
+  @include enigma(-4);
 }

@@ -4,7 +4,42 @@
 }
 
 /// Set basic text properties based on base font size and scale
-@mixin enig-size ( $level: 0, $lh: $enig-scale ) {
-  font-size: enigmaSize( $level );
-  line-height: enigmaLine( $level );
+/// FIXME - popis
+/// Mixin bere parametry ve tvaru (2 / 1.2 3 1) kde parametry jsou následující
+/// 2 - velikost textu dle stupnice (nepovinný parametr, default je jedna)
+/// 1.2 - vlastní řádkování (nepovinný parametr default je dle stupnice)
+/// 3 - margin top (nepov paramater, pokud není zadán, margin je 0)
+/// 1 - margin bottom - jedná se o násobek leadingu (defaultní výšky řádku) (nepovinný parametr, pokud není zadán, margin je 0)
+/// Pokud je třeba zadat pouze margin bottom a top nechceme měnit, je možné použít klíčové slovo base, které zachová hodnotu margin top nezměněnou
+@mixin enigma ( $keywords: () ) {
+  @if length( $keywords ) == 0 {
+    $tier: 0;
+
+  } @else {
+    $tier: nth( $keywords, 1 );
+
+    @if type-of( $tier ) != number {
+      @error 'First argument must be a integer number, not a #{ type-of($tier) }';
+    }
+  }
+
+  @if index( $keywords, 'on' ) {
+    $lh-args: nth( $keywords, index( $keywords, 'on' ) + 1 );
+    $lh-args: append( $lh-args, 'real');
+  } @else {
+    $lh-args: $tier;
+  }
+
+  @if index( $keywords, 'with') {
+    $mt: nth( $keywords, index( $keywords, 'with') + 1 );
+    $mb: nth( $keywords, index( $keywords, 'with') + 2 );
+  } @else {
+    $mt: 1;
+    $mb: 1;
+  }
+
+  font-size: enigmaSize( $tier );
+  line-height: enigmaLine( $lh-args );
+  margin-top: enigmaLeading( $mt );
+  margin-bottom: enigmaLeading( $mb );
 }

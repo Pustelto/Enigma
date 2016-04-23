@@ -22,32 +22,60 @@ ul, ol {
   padding: 0; }
 
 body {
-  background: linear-gradient(transparent 19.66667px, #15ADE6 19.66667px, #15ADE6 20.66667px, transparent 20.66667px) 0 0/100% 26.66667px repeat-y; }
+  background: linear-gradient(transparent 22px, #15ADE6 22px, #15ADE6 23px, transparent 23px) 0 0/100% 30px repeat-y; }
 
 body {
   font-size: 1.25rem;
-  line-height: 1.33333;
+  line-height: 1.5;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
   width: 960px;
   margin: 0 auto; }
 
-p {
-  margin-top: 0;
-  margin-bottom: 1.66667rem; }
-
 h1 {
-  font-size: 3.95062rem;
-  line-height: 1.6875;
-  margin-top: 3.33333rem;
-  margin-bottom: 1.66667rem; }
+  font-size: 6.32813rem;
+  line-height: 1.18519;
+  margin-top: 5.625rem;
+  margin-bottom: 1.875rem;
+  margin-top: 3.75rem;
+  margin-bottom: 1.875rem; }
 
 h2 {
-  font-size: 2.96296rem;
-  line-height: 1.6875;
-  margin-top: 2.5rem;
-  margin-bottom: 0.83333rem; }
+  font-size: 2.8125rem;
+  line-height: 1.33333;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+  margin-top: 2.8125rem;
+  margin-bottom: 0.9375rem; }
 
 h3 {
-  font-size: 1.66667rem;
+  font-size: 1.875rem;
   line-height: 1;
-  margin-top: 1.66667rem;
-  margin-bottom: 1.66667rem; }
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem; }
+
+.small {
+  font-size: 0.83333rem;
+  line-height: 1.5;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem; }
+
+.smaller {
+  font-size: 0.55556rem;
+  line-height: 1.5;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem; }
+
+.tiny {
+  font-size: 0.37037rem;
+  line-height: 1.5;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem; }
+
+.nano {
+  font-size: 0.24691rem;
+  line-height: 1.5;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem; }
