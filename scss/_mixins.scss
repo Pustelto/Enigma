@@ -14,7 +14,6 @@
 @mixin enigma ( $keywords: () ) {
   @if length( $keywords ) == 0 {
     $tier: 0;
-
   } @else {
     $tier: nth( $keywords, 1 );
 
@@ -22,6 +21,7 @@
       @error 'First argument must be a integer number, not a #{ type-of($tier) }';
     }
   }
+  font-size: enigmaSize( $tier );
 
   @if index( $keywords, 'on' ) {
     $lh-args: nth( $keywords, index( $keywords, 'on' ) + 1 );
@@ -29,17 +29,23 @@
   } @else {
     $lh-args: $tier;
   }
-
-  @if index( $keywords, 'with') {
-    $mt: nth( $keywords, index( $keywords, 'with') + 1 );
-    $mb: nth( $keywords, index( $keywords, 'with') + 2 );
-  } @else {
-    $mt: 1;
-    $mb: 1;
-  }
-
-  font-size: enigmaSize( $tier );
   line-height: enigmaLine( $lh-args );
-  margin-top: enigmaLeading( $mt );
-  margin-bottom: enigmaLeading( $mb );
+
+  $m-pos: index( $keywords, 'with');
+
+  @if $m-pos {
+    @if ( nth( $keywords, $m-pos + 1 ) ) != 'base' {
+      $mt: nth( $keywords, $m-pos + 1 );
+      margin-top: enigmaLeading( $mt );
+    }
+
+    @if ( length($keywords) >= $m-pos + 2 ) and ( type-of(nth( $keywords, $m-pos + 2 ) ) == 'number' ) {
+      $mb: nth( $keywords, $m-pos + 2 );
+      margin-bottom: enigmaLeading( $mb );
+    }
+
+  } @else {
+    margin-top: enigmaLeading( 1 );
+    margin-bottom: enigmaLeading( 1 );
+  }
 }

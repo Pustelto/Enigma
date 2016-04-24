@@ -9,21 +9,15 @@ body {
 }
 
 h1 {
-  @include enigma(4 with 3 1);
-  margin-top: enigmaLeading(2);
-  margin-bottom: enigmaLeading();
+  @include enigma(4 with 3 2 );
 }
 
 h2 {
-  @include enigma(2);
-  margin-top: enigmaLeading(1.5);
-  margin-bottom: enigmaLeading(0.5);
+  @include enigma(2 with 2 1);
 }
 
 h3 {
   @include enigma(1);
-  margin-top: enigmaLeading();
-  margin-bottom: enigmaLeading();
 }
 
 .small {
