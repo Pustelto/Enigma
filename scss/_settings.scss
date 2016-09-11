@@ -1,7 +1,0 @@
-$enig-number: enigmaUnit(depixel($enig-base));
-
-@if ( $enig-grid ) {
-  body {
-    @include enig-grid;
-  }
-}

@@ -1,0 +1,18 @@
+// Create grid lines for debug purpose
+// [1] - enigmaLeading caused some issues, so the size is defined same way
+// as gradient
+@mixin enig-grid () {
+  $enigma-opt: enigmaSettings();
+
+  $line-stop: map_get($enigma-opt, 'base') * map_get($enigma-opt, 'alfa') + map_get($enigma-opt, 'line-shift');
+
+  background: linear-gradient(
+      transparent $line-stop - 1px,
+      map_get($enigma-opt, 'line-color') $line-stop - 1px,
+      map_get($enigma-opt, 'line-color') $line-stop,
+      transparent $line-stop
+    ) !important;
+  background-position: 0 0 !important;
+  background-size: 100% ( map_get($enigma-opt, 'base') * map_get($enigma-opt, 'alfa')) !important; // [1]
+  background-repeat: repeat-y !important;
+}

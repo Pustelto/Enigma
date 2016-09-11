@@ -22,54 +22,52 @@ ul, ol {
   padding: 0; }
 
 body {
-  background: linear-gradient(transparent 22px, #15ADE6 22px, #15ADE6 23px, transparent 23px) 0 0/100% 30px repeat-y; }
-
-body {
   font-size: 1.25rem;
-  line-height: 1.5;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem;
+  line-height: 1.618;
+  margin-top: 2.0225rem;
+  margin-bottom: 2.0225rem;
   width: 960px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  background: linear-gradient(transparent 23.36px, #15ADE6 23.36px, #15ADE6 24.36px, transparent 24.36px) 0 0/100% 32.36px repeat-y; }
 
 h1 {
-  font-size: 6.32813rem;
-  line-height: 1.18519;
-  margin-top: 5.625rem;
-  margin-bottom: 3.75rem; }
+  font-size: 8.56691rem;
+  line-height: 0.94433;
+  margin-top: 6.0675rem;
+  margin-bottom: 4.045rem; }
 
 h2 {
-  font-size: 2.8125rem;
-  line-height: 1.33333;
-  margin-top: 3.75rem;
-  margin-bottom: 1.875rem; }
+  font-size: 3.27241rem;
+  line-height: 1.23609;
+  margin-top: 4.045rem;
+  margin-bottom: 2.0225rem; }
 
 h3 {
-  font-size: 1.875rem;
+  font-size: 2.0225rem;
   line-height: 1;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem; }
+  margin-top: 2.0225rem;
+  margin-bottom: 2.0225rem; }
 
 .small {
-  font-size: 0.83333rem;
-  line-height: 1.5;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem; }
+  font-size: 0.77256rem;
+  line-height: 1.618;
+  margin-top: 2.0225rem;
+  margin-bottom: 2.0225rem; }
 
 .smaller {
-  font-size: 0.55556rem;
-  line-height: 1.5;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem; }
+  font-size: 0.47748rem;
+  line-height: 1.618;
+  margin-top: 2.0225rem;
+  margin-bottom: 2.0225rem; }
 
 .tiny {
-  font-size: 0.37037rem;
-  line-height: 1.5;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem; }
+  font-size: 0.2951rem;
+  line-height: 1.618;
+  margin-top: 2.0225rem;
+  margin-bottom: 2.0225rem; }
 
 .nano {
-  font-size: 0.24691rem;
-  line-height: 1.5;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem; }
+  font-size: 0.18239rem;
+  line-height: 1.618;
+  margin-top: 2.0225rem;
+  margin-bottom: 2.0225rem; }
