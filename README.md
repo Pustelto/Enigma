@@ -28,6 +28,7 @@ All this is handled by Enigma. All you have to do is to put in few basic numbers
 - Example page for the project.
 - Support for responsive typography (CSS lock for fluid typography, different sizes for different screen sizes)
 - Support for custom scale (list of font sizes without constant ration - mainly for use with enigmaLeading etc.)
+- refactor project structure
 
 ## Knows bugs
 
