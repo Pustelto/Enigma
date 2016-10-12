@@ -28,6 +28,7 @@ description
 - Proper documentation.
 - Support for responsive typography (CSS lock for fluid typography, different sizes for different screen sizes)
 - Consider optional use of margin/padding for spacing
+- refactor project structure
 
 ## Knows bugs
 
