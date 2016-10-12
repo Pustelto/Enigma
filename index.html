@@ -6,35 +6,56 @@
     <meta name="description" content="Test page for Enigma typography project">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Tomas Pustelnik">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Oswald|Tangerine" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-The Picture of Dorian Gray
+    <div class="controls">
+        <div class="switch">
+            <input type="checkbox" id="grid"><label for="grid">Show grid</label>
+        </div>
+    </div>
 
-Oscar Wilde
+    <header>
+        <span class="title">The Picture of Dorian Gray</span>
+        <span class="author">Oscar Wilde</span>
+    </header>
 
-Chapter II
+    <main>
+        <h1>Chapter II</h1>
 
-As they entered they saw Dorian Gray. He was seated at the piano, with his back to them, turning over the pages
-of a volume of Schumann’s ‘Forest Scenes.’ ‘You must lend me these, Basil,’ he cried. ‘I want to learn them. They are perfectly charming.’
+        <p>As they entered they saw Dorian Gray. He was seated at the piano, with his back to them, turning over the pages of a volume of Schumann&apos;s <quote>Forest Scenes.</quote> ‘You must lend me these, Basil,’ he cried. ‘I want to learn them. They are perfectly charming.’</p>
 
-‘That entirely depends on how you sit to-day, Dorian.’
+       <quotation> ‘That entirely depends on how you sit to-day, Dorian.’</quotation>
 
-‘Oh, I am tired of sitting, and I don’t want a life-sized portrait of myself,’ answered the lad, swinging round on the music-stool, in a wilful, petulant manner. When he caught sight of Lord Henry, a faint blush colored his cheeks for a moment, and he started up. ‘I beg your pardon, Basil, but I didn’t know you had any one with you.’
+        <p>‘Oh, I am tired of sitting, and I don’t want a life-sized portrait of myself,’ answered the lad, swinging round on the music-stool, in a wilful, petulant manner. When he caught sight of Lord Henry, a faint blush colored his cheeks for a moment, and he started up. ‘I beg your pardon, Basil, but I didn’t know you had any one with you.’</p>
 
-‘This is Lord Henry Wotton, Dorian, an old Oxford friend of mine. I have just been telling him what a capital sitter you were, and now you have spoiled everything.’
+        <p>‘This is Lord Henry Wotton, Dorian, an old Oxford friend of mine. I have just been telling him what a capital sitter you were, and now you have spoiled everything.’</p>
 
-‘You have not spoiled my pleasure in meeting you, Mr. Gray,’ said Lord Henry, stepping forward and shaking him by the hand. ‘My aunt has often spoken to me about you. You are one of her favorites, and, I am afraid, one of her victims also.’
+        <p>‘You have not spoiled my pleasure in meeting you, Mr. Gray,’ said Lord Henry, stepping forward and shaking him by the hand. ‘My aunt has often spoken to me about you. You are one of her favorites, and, I am afraid, one of her victims also.’</p>
 
-‘I am in Lady Agatha’s black books at present,’ answered Dorian, with a funny look of penitence. ‘I promised to go to her club in Whitechapel with her last Tuesday, and I really forgot all about it. We were to have played a duet together,—three duets, I believe. I don’t know what she will say to me. I am far too frightened to call.’
+        <p>‘I am in Lady Agatha’s black books at present,’ answered Dorian, with a funny look of penitence. ‘I promised to go to her club in Whitechapel with her last Tuesday, and I really forgot all about it. We were to have played a duet together,—three duets, I believe. I don’t know what she will say to me. I am far too frightened to call.’</p>
 
-‘Oh, I will make your peace with my aunt. She is quite devoted to you. And I don’t think it really matters about your not being there. The audience probably thought it was a duet. When Aunt Agatha sits down to the piano she makes quite enough noise for two people.’
+        <p>‘Oh, I will make your peace with my aunt. She is quite devoted to you. And I don’t think it really matters about your not being there. The audience probably thought it was a duet. When Aunt Agatha sits down to the piano she makes quite enough noise for two people.’</p>
 
-‘That is very horrid to her, and not very nice to me,’ answered Dorian, laughing.
+        <p>‘That is very horrid to her, and not very nice to me,’ answered Dorian, laughing.</p>
 
-Lord Henry looked at him. Yes, he was certainly wonderfully handsome, with his finely-curved scarlet lips, his frank blue eyes, his crisp gold hair. There was something in his face that made one trust him at once. All the candor of youth was there, as well as all youth’s passionate purity. One felt that he had kept himself unspotted from the world. No wonder Basil Hallward worshipped him. He was made to be worshipped.
+        <p>Lord Henry looked at him. Yes, he was certainly wonderfully handsome, with his finely-curved scarlet lips, his frank blue eyes, his crisp gold hair. There was something in his face that made one trust him at once. All the candor of youth was there, as well as all youth’s passionate purity. One felt that he had kept himself unspotted from the world. No wonder Basil Hallward worshipped him. He was made to be worshipped.</p>
 
+        <div class="sidenote">
+            <p>Oscar Fingal O'Flahertie Wills Wilde (16 October 1854 – 30 November 1900) was an Irish playwright, novelist, essayist, and poet.</p>
+            <p>After writing in different forms throughout the 1880s, he became one of London's most popular playwrights in the early 1890s. He is remembered for his epigrams, his novel The Picture of Dorian Gray, his plays, as well as the circumstances of his imprisonment and early death.</p>
+        </div>
+    </main>
 
-Oscar Fingal O'Flahertie Wills Wilde (16 October 1854 – 30 November 1900) was an Irish playwright, novelist, essayist, and poet. After writing in different forms throughout the 1880s, he became one of London's most popular playwrights in the early 1890s. He is remembered for his epigrams, his novel The Picture of Dorian Gray, his plays, as well as the circumstances of his imprisonment and early death.
+    <script type="text/javascript">
+        (function(){
+            var gridSwitch = document.getElementById('grid');
+
+            gridSwitch.addEventListener('change', function(){
+                document.body.classList.toggle('show-grid');
+            });
+        })();
+    </script>
 </body>
 </html>

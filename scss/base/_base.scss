@@ -1,0 +1,110 @@
+////
+/// This file contains basic definitions
+////
+/// Line grid for vertical rythm debug
+:root {
+  font-size: 125%;
+  background-color: #fdfdfd;
+}
+
+body {
+  @include enigma();
+  position: relative;
+  height: auto;
+  width: 34rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-family: 'Alegreya', serif;
+  color: #353434
+}
+
+header {
+  position: relative;
+  text-align: center;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 25%;
+    height: 6px;
+    padding: 0 5%;
+    margin: 0 auto;
+    background-clip: content-box;
+    background-color: currentColor;
+  }
+
+  &:before {
+    top: enigmaLeading(0.5) * -1;
+    padding-bottom: 2px;
+    border-bottom: 2px solid currentColor;
+  }
+
+  &:after {
+    bottom: enigmaLeading(0.75) * -1;
+    padding-top: 2px;
+    border-top: 2px solid currentColor;
+  }
+}
+
+main {
+  position: relative;
+}
+
+h1 {
+  @include enigma(4);
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2 {
+  @include enigma(2 with 2 1);
+}
+
+h3 {
+  @include enigma(1);
+}
+
+p:not(:last-child) {
+  margin-bottom: enigmaLeading();
+}
+
+.title {
+  display: block;
+  @include enigma(2 'alfa' with 3);
+  font-family: 'Tangerine', 'Monotype Coursiva';
+}
+
+.author {
+  display: block;
+  @include enigma(1 with 0 2)
+  font-family: 'Oswald', Arial, sans-serif;
+}
+
+.sidenote {
+  @include enigma(-1 on -1 at 4/5 with 0 0);
+  position: absolute;
+  top: enigmaLeading(3);
+  left: calc( 100% + #{enigmaLeading()} );
+  width: enigmaLeading(6);
+
+  & > p {
+    margin-bottom: enigmaLeading(4/5);
+  }
+}
+
+// utility classes
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: enigmaLeading();
+}
+
+.show-grid {
+  @include enig-grid;
+}

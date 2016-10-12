@@ -1,11 +1,11 @@
 /// Enigma files
 // default settings
-@import 'defaults';
+@import './partials/defaults';
 
 // Control blocks
-@import 'functions';
-@import 'mixins';
+@import './partials/functions';
+@import './partials/mixins';
 
 // Debug tools for vertical rhythm
-@import 'tools';
+@import './partials/tools';
 

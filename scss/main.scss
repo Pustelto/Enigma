@@ -1,11 +1,11 @@
 /// normalization file
-@import 'normy-core';
+@import 'test/normy-core';
 
 /// Enigma toolkit
 @import 'Enigma/_enigma';
 
 //variables
-@import 'var';
+@import 'test/var';
 
 /// base CSS file
-@import 'base';
+@import 'test/base';

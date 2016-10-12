@@ -192,7 +192,7 @@
   }
 
   // Find out how many lines will be necessary for this font size
-  $n: ceil($text-size / map_get($enigma-opt, 'alfa'));
+  $n: ceil($text-size / $lh);
   $n: stripUnit($n);
 
   $lh: $lh / $text-size;
