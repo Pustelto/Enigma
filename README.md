@@ -12,7 +12,7 @@ All math is handled by Enigma. All you have to do is to put in few basic numbers
 
 ## How to use it
 
-Include the sass files from `dist/` folder, add `_enigma.scss` into your main sass file and you are ready to go.
+Include the sass files from `dist/` folder into your project, add `_enigma.scss` to your main sass file and you are ready to go.
 
 Enigma offers few functions and one mixin to make setting up typography and vertycal rhythm easy. All you have to do is to give Enigma some basic settings for you project. (well you don't have to do it as Enigma have some defaults but if you really care about nice typography, then you will do it).
 
