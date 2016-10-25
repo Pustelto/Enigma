@@ -68,6 +68,23 @@ h3 {
   @include enigma(1);
 }
 
+quote {
+  quotes: '\201c' '\201d' '\2018' '\2019';
+  margin: 0;
+}
+
+quote:before {
+  content: open-quote;
+}
+
+quote:after {
+  content: close-quote;
+}
+
+quote:first-child {
+  margin-left: -8px;
+}
+
 p:not(:last-child) {
   margin-bottom: enigmaLeading();
 }
