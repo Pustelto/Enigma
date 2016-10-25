@@ -1,0 +1,80 @@
+/// Set basic text properties based on base font size and scale
+/// FIXME - popis
+/// Mixin bere parametry ve tvaru (2 / 1.2 3 1) kde parametry jsou následující
+/// 2 - velikost textu dle stupnice (nepovinný parametr, default je jedna)
+/// 1.2 - vlastní řádkování (nepovinný parametr default je dle stupnice)
+/// 3 - margin top (nepov paramater, pokud není zadán, margin je 0)
+/// 1 - margin bottom - jedná se o násobek leadingu (defaultní výšky řádku) (nepovinný parametr, pokud není zadán, margin je 0)
+/// Pokud je třeba zadat pouze margin bottom a top nechceme měnit, je možné použít klíčové slovo base, které zachová hodnotu margin top nezměněnou
+
+/// [ FZ ] [ scale ] on [ LH | FZ at Q ] with [ MT MB ]
+@mixin enigma ( $keywords: () ) {
+  // Prepare parametr variables
+  $lvl: 0;
+  $lh-args: 0;
+  $scale: null;
+  $on: index( $keywords, 'on' );
+  $at: index( $keywords, 'at' );
+  $margins: index( $keywords, 'with');
+
+  // Process keywords variables
+  // Get position on modular scale
+  @if length( $keywords ) != 0 {
+    $lvl: nth( $keywords, 1 );
+    @if type-of( $lvl ) != number {
+      @error 'First argument must be a integer number, not a #{ type-of($lvl) }';
+    }
+  }
+
+  // Get modular scale used to calculate sizes
+  @if ( length($keywords) > 1 and ( nth($keywords, 2) == 'alfa' or nth($keywords, 2) == 'beta' ) ) {
+    $scale: nth($keywords, 2);
+  }
+
+  font-size: enigmaSize( $lvl, $scale );
+
+
+  // Create line-height arguments
+  @if $on {
+
+    $lh-args: nth( $keywords, $on + 1 );
+
+    @if $at {
+      @for $i from $at through ( ( $margins or length($keywords) + 1 ) - 1 ) {
+        $lh-args: join( $lh-args, nth( $keywords, $i));
+      }
+
+    } @else {
+      $lh-args: append( $lh-args, 'real');
+    }
+
+  // no line-height argument - calculate line height based on font size
+  } @else {
+    $lh-args: $lvl;
+  }
+
+  line-height: enigmaLine( $lh-args, $scale );
+
+
+  // Add margins to text element
+  // Custom margins if defined
+  @if $margins {
+
+    // Set  margin-top if keyword 'base' is not used
+    @if ( nth( $keywords, $margins + 1 ) ) != 'base' {
+      $mt: nth( $keywords, $margins + 1 );
+      margin-top: enigmaLeading( $mt );
+    }
+
+    // Set margin-bottom if second margin parametr was used
+    @if ( length($keywords) >= $margins + 2 ) and ( type-of(nth( $keywords, $margins + 2 ) ) == 'number' ) {
+      $mb: nth( $keywords, $margins + 2 );
+      margin-bottom: enigmaLeading( $mb );
+    }
+
+  // Add default margins if with declaration omitted
+  } @else {
+    margin-top: enigmaLeading( 1 );
+    margin-bottom: enigmaLeading( 1 );
+  }
+}

@@ -1,0 +1,206 @@
+/// ------------------------
+/// HELPER FUNCTIONS
+/// ------------------------
+
+/// Removes unit from number
+@function stripUnit ( $number ) {
+  $unit: $number * 0 + 1;
+  @return ($number / $unit);
+}
+
+/// TODO not used, delete
+@function enigmaRound ( $number, $root ) {
+  @return (round( $number * $root ) / $root );
+}
+
+/// Returns basic font size
+/// @param $unit - Bool - return number with unit set in options or without unit
+@function enigmaBase( $unit: false) {
+  $enigma-opt: enigmaSettings();
+
+  @if $unit {
+    @return ( map_get($enigma-opt, 'base') / map_get($enigma-opt, 'root') ) * map_get($enigma-opt, 'unit') ;
+  } @else {
+    @return map_get($enigma-opt, 'base') / map_get($enigma-opt, 'root');
+  }
+}
+
+/// Merge default and user settings
+@function enigmaSettings () {
+  @if length($enigma) > 0 {
+    @return map_merge( $enigma-defaults, $enigma);
+  } @else {
+    @return $enigma-defaults;
+  }
+}
+
+/// Power function
+@function enigmaPower( $exponent, $scale ) {
+  $result: $scale;
+
+  @if $exponent > 0 {
+    @for $i from 1 to $exponent {
+      $result: $result * $scale;
+    }
+  } @else {
+    @for $i from 1 to $exponent {
+      $result: $result / $scale;
+    }
+  }
+
+  @return $result;
+}
+
+/// Quick sort
+/// @author Sam Richards
+/// @param {List} $list - list to sort
+/// @return {List}
+@function quick-sort($list) {
+  $less:  ();
+  $equal: ();
+  $large: ();
+
+  @if length($list) > 1 {
+    $seed: nth($list, ceil(length($list) / 2));
+
+    @each $item in $list {
+      @if ($item == $seed) {
+        $equal: append($equal, $item);
+      } @else if ($item < $seed) {
+        $less: append($less, $item);
+      } @else if ($item > $seed) {
+        $large: append($large, $item);
+      }
+    }
+
+    @return join(join(quick-sort($less), $equal), quick-sort($large));
+  }
+
+  @return $list;
+}
+
+/// Generate list from two scales
+@function generateScale( $lvl, $scales) {
+  $result: 1;
+
+  // Generate list of scale values
+  @if $lvl != 0 {
+    $start: $lvl / abs($lvl);
+
+    @each $scale in $scales {
+        @for $i from $start through $lvl {
+          $result: join($result, enigmaPower($i, $scale) );
+        }
+    }
+  }
+
+  // Sort the list
+  $result: quick-sort($result);
+
+  @return $result;
+}
+
+
+
+/// ------------------------
+/// VERTICAL RHYTHM FUNCTIONS
+/// ------------------------
+
+/// Spacing function to keep vertical rhytm consistent
+/// can be used for margin, padding etc.
+/// @return multiplication of line height
+/// $lvl doesn't have to be integer
+@function enigmaLeading ( $lvl: 1 ) {
+  $enigma-opt: enigmaSettings();
+  $enigma-base: enigmaBase();
+
+  // Return specified number of lines
+  @return map_get($enigma-opt, 'alfa') * $enigma-base * map_get($enigma-opt, 'unit') * $lvl;
+}
+
+/// Function to calculate size based on scale
+/// @param $lvl - Number - position on scale to use as font size
+/// @param $scale - String - optional, which scale should be used
+///
+/// If only one argument provided function return font-size based on both
+/// scales (merged scale, if more scales defined).
+/// In case of two arguments function return font size on position of
+/// specified scale
+@function enigmaSize ( $lvl: 0, $scale: null ) {
+  $enigma-opt: enigmaSettings();
+  $enigma-base: enigmaBase(true);
+  $scales: null;
+  $index: 0;
+
+  // No scale selected, take value from combination of both scales
+  @if $scale == null {
+
+    // Create list from alfa and beta scales
+    @if map_get($enigma-opt, 'beta') == null {
+
+      // return normal power value if no beta is defined
+      @return enigmaPower( $lvl, map_get($enigma-opt, 'alfa') ) * $enigma-base;
+
+    } @else {
+      $scales: generateScale( $lvl, map_get($enigma-opt, 'alfa') map_get($enigma-opt, 'beta') );
+    }
+
+    // Modify $lvl to reflext that list contains 1 as well
+    @if $lvl > 0 {
+      $index: $lvl + 1;
+    } @else {
+      $index: $lvl - 1;
+    }
+
+    // Get the correct index
+    @return nth( $scales, $index ) * $enigma-base;
+
+  // Return value for only one scale
+  } @else {
+    @if map_get($enigma-opt, $scale) == null {
+      @error 'Scale #{$scale} is not defined.';
+    }
+    @return enigmaPower( $lvl, map_get($enigma-opt, $scale) ) * $enigma-base;
+  }
+}
+
+/// Function to calculate correct line height to keep
+/// vertical rhythm consistent
+/// $lh-args: $lvl, real, at N
+/// $lvl {Number} - for what font-size will the line-height be calculated
+/// real - keyword - $lvl is exact line-height, no calculation is done
+/// of N - line-height will align itself to proper vertical rhytm after N lines
+/// eg. 3 of 4 - 4 lines are equal to 3 standart lines - useful for smaller texts
+@function enigmaLine ( $lh-args, $scale: null ) {
+  // Parse line-height arguments
+  $lvl: nth( $lh-args, 1);
+  $real: index($lh-args, 'real');
+  $at: index($lh-args, 'at');
+
+  // Other variables
+  $enigma-opt: enigmaSettings();
+  $n: 1;
+  $text-size: enigmaSize($lvl, $scale);
+
+  // Return value
+  $lh: enigmaLeading();
+
+  // Line height calculation
+  // if the line-hegiht value is real value
+  @if ( $real ) {
+    @return $lvl;
+  }
+
+  // Find out how many lines will be necessary for this font size
+  $n: ceil($text-size / $lh);
+  $n: stripUnit($n);
+
+  $lh: $lh / $text-size;
+
+  // N at M calculation
+  @if $at {
+    $lh: $lh * nth( $lh-args, $at + 1);
+  }
+
+  @return $lh * $n;
+}

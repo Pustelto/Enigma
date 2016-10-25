@@ -1,0 +1,27 @@
+/// TODO - rename to settings
+/*
+root - font size at root element, it = 1rem
+base - font size of body text (paragraph)
+unit - unit to calculate all sizes in
+alfa - primary scale
+beta - secondary scale, optional
+start - start/smalles index of scale - used to improve performance
+stop - larges index of scale - used to improve performance
+line-shift - align lines to be exactly below text, not in the middle
+line-color - color of debug lines
+All dimension must be in pixels
+*/
+$enigma-defaults: (
+    'root': 16px,
+    'base': 16px,
+    'unit': 1rem,
+    'alfa': 1.5,
+    'beta': null,
+    'start': -3,
+    'stop': 5,
+    'line-shift': -7px,
+    'line-color': #15ADE6
+);
+
+// Custom settings map (empty for merge)
+$enigma: () !default;
