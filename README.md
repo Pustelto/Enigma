@@ -53,7 +53,44 @@ __line-shift__ - align debug grid lines to be exactly below text, not in the mid
 __line-color__ - color of debug grid lines. Any valid CSS color should work.
 
 ### Mixin
-_TODO_
+
+Enigma provide `enigma` mixin, which can be used to set most of your typography. It has several parameters and all of them are optional. So the easest use of the mixin would be `@include enigma();`. This would set your font size to the value of `base` settings. Mixin also sets coressponding line height.
+
+`enigma` mixin has following syntax:
+
+```scss
+/* General syntax */
+@include enigma([scale] [on (line-height | lh-scale at lh-ratio)] [with margin-top [margin-bottom] ] );
+
+/* and real life example - side note from test page*/
+@include enigma(-1 on -1 at 4/5 with 0 0);
+```
+
+#### Mixin parameters:
+
+__scale__ - Integer, _Default: 0_
+
+Represent position on the modular scale. This parametr is used to set `font-size` property and is mandatory only if other parameters are used as well. Default value is used if omitted. Default value is 0 (`base` size from settings).
+
+__line-height__ - Number, _Default: no default value, parameter is left empty_
+
+Real number which will be used as a value for `line-height` property. Must be preceded by `on` keyword. If not line-height parameter was specified (together with keyword `on`) then value of line-height is calculated automaticaly based on scale. This automatic calculation is what you usually want, so unless you need some specific line height you shouldn't be using this very often.
+
+__lh-scale__ - Integer, _Default: no default, parameter must be always specified if used_
+
+Must be used together with `lh-ration` otherwise expect buggy behavior or errors during compilation. Must be preceded by `on` keyword and followed by `at` keyword. This value represent fon-size (from modular scale) for which line height should be calculated. Usualy will be same as `scale` value.
+
+__lh-ratio__ - Number, _Default: no default, parameter must be always specified if used_
+
+Must be used together with `lh-scale` otherwise expect buggy behavior or errors during compilation. Must be preceded by `at` keyword. This value represent ration between default line-height (for body text) and line-height calculated by mixin. Eg. value `4/5` in real life example above means that 5 lines set by mixin will have height of 4 base lines. See side note in demo page for visuall example.
+
+__margin-top__ - Number | 'base', _Default: size of line-height unless specified otherwise_
+
+Top margin of the element. Number is ration of base line. Eg. 1 equals to 1 base line, 0 set margin to 0. If not specified by `with` keyword top margin of 1 will be added automaticaly. So in order to have 0 margins you must wrote `@include enigma(1 with 0 0);`. Special value `base` will leave top margin unchanged (it won't reset the top margin if specifed at different place in CSS).
+
+__margin-bottom__ - Number, _Default: size of line-height unless specified otherwise_
+
+Bottom margin of the element. Number is ration of base line. Eg. 1 equals to 1 base line, 0 set margin to 0. If not specified by `with` keyword top margin of 1 will be added automaticaly. So in order to have 0 margins you must wrote `@include enigma(1 with 0 0);`. Bottom margin won't accept value `base`. If you don't want to override bottom margin, simply don't define it (eg. `@include enigma(1 with 1)`). However you have to define top margin, otherwise default margin will be set.
 
 ### Functions
 _TODO_
