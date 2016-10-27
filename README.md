@@ -93,12 +93,33 @@ __margin-bottom__ - Number, _Default: size of line-height unless specified other
 Bottom margin of the element. Number is ration of base line. Eg. 1 equals to 1 base line, 0 set margin to 0. If not specified by `with` keyword top margin of 1 will be added automaticaly. So in order to have 0 margins you must wrote `@include enigma(1 with 0 0);`. Bottom margin won't accept value `base`. If you don't want to override bottom margin, simply don't define it (eg. `@include enigma(1 with 1)`). However you have to define top margin, otherwise default margin will be set.
 
 ### Functions
-_TODO_
 
-## To-Do:
+Enigma functions are useful if you need setup some value directly (like margins for consistent vertical rhythm). On low level `enigma` mixin only parses parameters and call functions below with those parsed parameters.
 
-- Test page - show of different enigma uses and settings
-- Proper documentation.
+#### enigmaLeading( $lvl )
+
+This function returns multiple of base line height. `$lvl` parameter is number by which the base line height is multiplied.
+
+Defaults: `$lvl`: 1 (one base line height)
+
+#### enigmaSize( $lvl, $scale)
+
+This function returns size based on value of scale. This function is most usefull for setting up font size, but it can be used elsewhere as well. `$lvl` parameter is level from modular scale and must be integer. `$scale` parameter is string with the name of scale which should be used for calculation ('alfa' or 'beta'). If the `$scale` is null then merged scale from alfa and beta will be used.
+
+Defaults: `$lvl`: 0, `$scale`: null
+
+#### enigmaLine( $lh-args, $scale)
+
+Funtion return correct line-height (unitless number) for specified parameters. It won't be very probably useful outside of line-height calculations but feel free to use it in different scenarios as well. `$lh-args` is map of parameters to calculate proper line-height, see line height parameters at `enigma` mixin documentation.
+
+Aside from `enigma` mixin there are these modifications: If you enter only integer number, line-height will be calculated as if this number is font size from scale. If you add keyword `real` after the number (can be with decimal point) that number will be used as is for `line-height` property.
+
+`$scale` parameter is string with the name of scale which should be used for calculation ('alfa' or 'beta'). If the `$scale` is null then merged scale from alfa and beta will be used.
+
+Defaults: `$lvl`: 0, `$scale`: null
+
+## Things which may be added in the future:
+
 - refactor project structure
 - Support for responsive typography (CSS lock for fluid typography, different sizes for different screen sizes)
 - Consider optional use of margin/padding for spacing
