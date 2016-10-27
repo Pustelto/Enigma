@@ -121,6 +121,7 @@ Defaults: `$lvl`: 0, `$scale`: null
 ## Things which may be added in the future:
 
 - refactor project structure
+- create proper project page
 - Support for responsive typography (CSS lock for fluid typography, different sizes for different screen sizes)
 - Consider optional use of margin/padding for spacing
 - custom scale (font-sizes) - need to re-think it.
