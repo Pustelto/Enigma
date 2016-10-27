@@ -10,6 +10,8 @@ Enigma doesn't come with fonts or typography templates, for ready made solutions
 
 All math is handled by Enigma. All you have to do is to put in few basic numbers and enjoy the results - harmonious font sizes and vertycal rhythm.
 
+See [demo page](https://pustelto.github.io/Enigma/) and source files (`index.html` and `_base.scss`) to see how ease can you craft good typography.
+
 ## How to use it
 
 Include the sass files from `dist/` folder into your project, add `_enigma.scss` to your main sass file and you are ready to go.
@@ -82,7 +84,7 @@ Must be used together with `lh-ration` otherwise expect buggy behavior or errors
 
 __lh-ratio__ - Number, _Default: no default, parameter must be always specified if used_
 
-Must be used together with `lh-scale` otherwise expect buggy behavior or errors during compilation. Must be preceded by `at` keyword. This value represent ration between default line-height (for body text) and line-height calculated by mixin. Eg. value `4/5` in real life example above means that 5 lines set by mixin will have height of 4 base lines. See side note in demo page for visuall example.
+Must be used together with `lh-scale` otherwise expect buggy behavior or errors during compilation. Must be preceded by `at` keyword. This value represent ration between default line-height (for body text) and line-height calculated by mixin. Eg. value `4/5` in real life example above means that 5 lines set by mixin will have height of 4 base lines. See side note in [demo page](https://pustelto.github.io/Enigma/) for visuall example.
 
 __margin-top__ - Number | 'base', _Default: size of line-height unless specified otherwise_
 
